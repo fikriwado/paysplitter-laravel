@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('transaction_logs', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
+            $table->uuid('transaction_id');
+            $table->string('status', 20)->default('pending');
+            $table->json('request_payload');
+            $table->json('response_payload');
             $table->timestamps();
+            $table->foreign('transaction_id')->references('id')->on('transactions')->onDelete('cascade');
         });
     }
 
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('transaction_logs');
     }
 };
