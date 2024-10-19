@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('type', 50);
             $table->string('webhook_url', 150);
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('application_id')->references('id')->on('applications')->onDelete('cascade');
             $table->unique(['application_id', 'type']);

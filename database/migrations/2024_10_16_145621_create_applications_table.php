@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('secret_key', 50)->unique();
             $table->string('payment_gateway', 20);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

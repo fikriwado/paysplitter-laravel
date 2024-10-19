@@ -29,9 +29,9 @@ class TransactionFactory extends Factory
 
         return [
             'application_id' => $application->id,
+            'payment_type_id' => $paymentType->id,
             'payment_url' => $this->faker->url(),
             'invoice_number' => 'PS-' . strtoupper(Str::random(5)) . '-' . $this->faker->numberBetween(100, 999),
-            'transaction_type' => $paymentType->type,
             'payment_method' => $paymentMethod,
             'payment_account' => $paymentAccount,
             'amount' => $this->faker->numberBetween(10000, 100000),
