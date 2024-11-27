@@ -2,7 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\API\PaymentController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\Webhooks\WebhookXenditController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +20,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/paysplitter/{app}/{sub?}', [PaymentController::class, 'payment']);
+// Notifications
+Route::post('/paysplitter/notification/xendit', WebhookXenditController::class);
+
+// Payment
+Route::post('/paysplitter/{app}/{type?}', [PaymentController::class, 'payment']);

@@ -173,7 +173,8 @@ return [
         /*
          * Payments Service Providers...
          */
-        App\Providers\API\PaymentXenditServiceProvider::class,
+        App\Providers\PaymentServiceProvider::class,
+        App\Providers\Webhooks\PaymentXenditServiceProvider::class,
     ])->toArray(),
 
     /*

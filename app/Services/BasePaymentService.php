@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Services\API;
+namespace App\Services;
 
-interface PaymentService
+interface BasePaymentService
 {
     public function createPayment(array $bodyRequest): object;
 }

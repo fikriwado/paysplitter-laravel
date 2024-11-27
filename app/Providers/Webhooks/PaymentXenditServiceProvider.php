@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Providers\API;
+namespace App\Providers\Webhooks;
 
-use App\Services\API\PaymentXenditService;
-use App\Services\API\Impl\PaymentXenditServiceImpl;
+use App\Services\PaymentXenditService;
+use App\Services\Impl\PaymentXenditServiceImpl;
 use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\ServiceProvider;
 
